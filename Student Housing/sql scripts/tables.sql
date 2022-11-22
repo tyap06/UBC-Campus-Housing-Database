@@ -96,7 +96,7 @@ Program				varchar(75)
 EmailAddress				varchar(50)	UNIQUE,
 LengthofStay				varchar(50)	
 EmployeeNumber			int,		
-NoOfAccompanysFamilyMembers	int
+NoOfAccompanyingFamilyMembers	int
 
 );
 
