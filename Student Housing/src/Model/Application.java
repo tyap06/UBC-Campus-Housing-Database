@@ -43,6 +43,9 @@ public class Application extends Model{
         Random rand = new Random();
         int upperbound = 100000000;
         int int_random = rand.nextInt(upperbound);
+        if (int_random < 301) {
+            int_random += 301;
+        }
         return int_random;
     }
 
