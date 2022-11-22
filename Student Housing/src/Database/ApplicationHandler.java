@@ -55,11 +55,11 @@ public class ApplicationHandler implements ModelHandler{
             ps.setString(8, app.getCWL());
             ps.setInt(9, app.getStudentNumber());
             ps.setString(10, app.getProgram());
-            ps.setString(6, app.getEmailAddress());
-            ps.setString(7, app.getLengthOfStay());
-            ps.setInt(8, app.getEmployeeNumber());
-            ps.setInt(9, app.getNoOfAccompanyingFamilyMembers());
-            ps.setInt(10, app.getApplicationID());
+            ps.setString(11, app.getEmailAddress());
+            ps.setString(12, app.getLengthOfStay());
+            ps.setInt(13, app.getEmployeeNumber());
+            ps.setInt(14, app.getNoOfAccompanyingFamilyMembers());
+            ps.setInt(15, app.getApplicationID());
             int numOfRows = ps.executeUpdate();
             if (numOfRows == 0) {
                 System.out.println(
