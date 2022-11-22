@@ -17,7 +17,7 @@ public class Application extends Model{
     int employeeNumber;
     int noOfAccompanyingFamilyMembers;
 
-    public Application(int applicationID, String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession;
+    public Application(int applicationID, String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession,
     String CWL, int studentNumber, String program, String emailAddress, String lengthOfStay, int employeeNumber, int noOfAccompanyingFamilyMembers) {
         this.applicationID = applicationID;
         this.applicantName = applicantName;

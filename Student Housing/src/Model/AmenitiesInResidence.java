@@ -1,6 +1,6 @@
 package Model;
 
-public class AmenitiesInResidence {
+public class AmenitiesInResidence extends Model {
     int amenityID;
     int residenceID;
     int noOfRooms;
