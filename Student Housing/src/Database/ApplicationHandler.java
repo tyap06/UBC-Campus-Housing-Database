@@ -3,6 +3,7 @@ package Database;
 import Model.Application;
 import Model.Model;
 import util.Constants;
+import java.util.Random;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -108,7 +109,6 @@ public class ApplicationHandler implements ModelHandler{
 
             while(resultSet.next()) {
                 Application app = new Application(
-                        resultSet.getInt("applicationID"),
                         resultSet.getString("applicantName"),
                         resultSet.getString("residentType"),
                         resultSet.getString("1stPrefRoom"),

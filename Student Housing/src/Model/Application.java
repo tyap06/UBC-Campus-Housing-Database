@@ -1,25 +1,27 @@
 package Model;
 
-public class Application extends Model{
-    int applicationID;
-    String applicantName;
-    String residentType;
-    String firstPrefRoom;
-    String secondPrefRoom;
-    String firstPrefResidence;
-    String secondPrefResidence;
-    String housingSession;
-    String CWL;
-    int studentNumber;
-    String program;
-    String emailAddress;
-    String lengthOfStay;
-    int employeeNumber;
-    int noOfAccompanyingFamilyMembers;
+import java.util.Random;
 
-    public Application(int applicationID, String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession,
+public class Application extends Model{
+    private final int applicationID;
+    private final String applicantName;
+    private final String residentType;
+    private final String firstPrefRoom;
+    private final String secondPrefRoom;
+    private final String firstPrefResidence;
+    private final String secondPrefResidence;
+    private final String housingSession;
+    private final String CWL;
+    private final int studentNumber;
+    private final String program;
+    private final String emailAddress;
+    private final String lengthOfStay;
+    private final int employeeNumber;
+    private final int noOfAccompanyingFamilyMembers;
+
+    public Application(String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession,
     String CWL, int studentNumber, String program, String emailAddress, String lengthOfStay, int employeeNumber, int noOfAccompanyingFamilyMembers) {
-        this.applicationID = applicationID;
+        this.applicationID = getRandom();
         this.applicantName = applicantName;
         this.residentType = residentType;
         this.firstPrefRoom = firstPrefRoom;
@@ -34,6 +36,14 @@ public class Application extends Model{
         this.lengthOfStay = lengthOfStay;
         this.employeeNumber = employeeNumber;
         this.noOfAccompanyingFamilyMembers = noOfAccompanyingFamilyMembers;
+        this.type = ModelType.APPLICATION;
+    }
+
+    public int getRandom() {
+        Random rand = new Random();
+        int upperbound = 100000000;
+        int int_random = rand.nextInt(upperbound);
+        return int_random;
     }
 
     public int getApplicationID() {
