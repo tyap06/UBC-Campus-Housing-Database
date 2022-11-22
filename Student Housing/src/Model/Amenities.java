@@ -1,0 +1,20 @@
+package Model;
+
+public class Amenities {
+    int amenityID;
+    String amenityName;
+
+    public Amenities(int amenityID, String amenityName, int noOfRooms) {
+        this.amenityID = amenityID;
+        this.amenityName = amenityName;
+    }
+
+    public int getAmenityID() {
+        return this.amenityID;
+    }
+
+    public String getAmenityName() {
+        return this.amenityName;
+    }
+
+}
