@@ -55,3 +55,4 @@ public class ResidenceHandler implements ModelHandler {
 
         return result.toArray(new Residence[0]);
     }
+}
