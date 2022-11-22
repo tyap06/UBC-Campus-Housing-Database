@@ -1,6 +1,6 @@
 package Model;
 
-public class RoomAllocationInfo {
+public class RoomAllocationInfo extends Model{
     String house;
     int unitNumber;
     int residentID;

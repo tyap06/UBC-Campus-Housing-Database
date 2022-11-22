@@ -1,6 +1,6 @@
 package Model;
 
-public class Amenities {
+public class Amenities extends Model {
     int amenityID;
     String amenityName;
 

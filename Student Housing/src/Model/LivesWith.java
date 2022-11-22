@@ -1,6 +1,6 @@
 package Model;
 
-public class LivesWith {
+public class LivesWith extends Model{
     int residentID;
     int otherResidentID;
 

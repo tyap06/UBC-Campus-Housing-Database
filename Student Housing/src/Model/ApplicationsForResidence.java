@@ -1,6 +1,6 @@
 package Model;
 
-public class ApplicationsForResidence {
+public class ApplicationsForResidence extends Model{
     int residenceID;
     int applicationID;
 

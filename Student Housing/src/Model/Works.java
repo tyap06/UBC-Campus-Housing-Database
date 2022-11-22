@@ -1,6 +1,6 @@
 package Model;
 
-public class Works{
+public class Works extends Model{
     int residenceStaffID;
     int residenceID;
 

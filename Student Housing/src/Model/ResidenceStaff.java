@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class ResidenceStaff {
+public class ResidenceStaff extends Model{
     int staffID;
     String staffName;
     Date birthDate;

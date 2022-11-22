@@ -1,6 +1,6 @@
 package Model;
 
-public class RoomInfo {
+public class RoomInfo extends Model{
     String house;
     int unitNumber;
     String roomType;

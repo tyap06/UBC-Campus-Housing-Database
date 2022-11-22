@@ -1,6 +1,6 @@
 package Model;
 
-public class Campus {
+public class Campus extends Model{
     int campusID;
     String campusName;
     String campusAddress;

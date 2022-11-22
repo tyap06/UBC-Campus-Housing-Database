@@ -1,6 +1,6 @@
 package Model;
 
-public class CFA {
+public class CFA extends Model{
     int cfaID;
     String accessibilityAccommodation;
 

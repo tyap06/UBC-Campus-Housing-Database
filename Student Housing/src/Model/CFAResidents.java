@@ -1,6 +1,6 @@
 package Model;
 
-public class CFAResidents {
+public class CFAResidents extends Model{
     int campusID;
     int residenceID;
 

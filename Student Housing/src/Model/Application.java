@@ -1,6 +1,6 @@
 package Model;
 
-public class Application {
+public class Application extends Model{
     int applicationID;
     String applicantName;
     String residentType;
