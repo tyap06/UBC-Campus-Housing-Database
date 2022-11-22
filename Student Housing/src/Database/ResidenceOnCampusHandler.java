@@ -1,8 +1,7 @@
 package database;
 
 import model.model;
-import model.Residence;
-import model.
+import model.ResidenceOnCampus;
 
 import java.sql.*;
 import util.Constants;
