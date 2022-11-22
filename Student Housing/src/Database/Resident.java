@@ -12,26 +12,7 @@ public class ResidentHandler implements ModelHandler{
 
     @Override
     public void insert(Model model, Connection connection) {
-        Resident resident = (Resident) model;
-        String query = "INSERT INTO Resident VALUES (?,?,?,?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, resident.getResidentID());
-            ps.setString(2, resident.getResidentName());
-            ps.setString(3, resident.getHousingSession());
-            ps.setString(4, resident.getCWL());
-            ps.setString(5, resident.getStudentNumber());
-            ps.setString(6, resident.getProgram());
-            ps.setString(7, resident.getEmailAddress());
-            ps.setString(8, resident.getLengthOfStay());
-            ps.setInt(9, resident.getEmployeeNumber());
-            ps.setInt(10, resident.getNoOfAccompanyingFamilyMembers());
-            ps.executeUpdate();
-            connection.commit();
-        } catch (SQLException e) {
-            System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-        }
-
+        System.out.println(Constants.WARNING_TAG + "You cannot insert to this Table");
     }
 
     @Override
