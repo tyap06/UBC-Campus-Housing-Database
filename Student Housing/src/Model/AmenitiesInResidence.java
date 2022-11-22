@@ -1,11 +1,11 @@
 package Model;
 
-public class AmenitiesinResidence {
+public class AmenitiesInResidence {
     int amenityID;
     int residenceID;
     int noOfRooms;
 
-    public AmenitiesResidence(int amenityID, int residenceID, int noOfRooms) {
+    public AmenitiesInResidence(int amenityID, int residenceID, int noOfRooms) {
         this.amenityID = amenityID;
         this.residenceID = residenceID;
         this.noOfRooms = noOfRooms;
