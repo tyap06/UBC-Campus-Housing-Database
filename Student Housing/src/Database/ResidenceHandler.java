@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ResidenceHandler implements ModelHandler {
     private final DatabaseConnectionHandler dbHandler;
 
-    public StationHandler(DatabaseConnectionHandler dbHandler) {
+    public ResidenceHandler(DatabaseConnectionHandler dbHandler) {
         this.dbHandler = dbHandler;
     }
 
