@@ -7,7 +7,7 @@ import java.sql.*;
 import util.Constants;
 import java.util.ArrayList;
 
-/*
+
 public class ResidentHandler implements ModelHandler{
 
     @Override
@@ -15,29 +15,21 @@ public class ResidentHandler implements ModelHandler{
         System.out.println(Constants.WARNING_TAG + "You cannot insert to this Table");
     }
 
+    
+    //updates the length of stay of a visitor resident
     @Override
     public void update(Model model, Connection connection) {
         Resident resident = (Resident) model;
-        String query = "UPDATE Resident SET residentName = ?, housingSession = ?, CWL = ?, studentNumber = ?, " +
-                "Program = ?, EmailAddress = ?, LengthofStay = ?, EmployeeNumber = ?, NoOfAccompanysFamilyMembers = ? " +
-                "WHERE residentID = ?";
+        String query = "UPDATE Resident SET LengthofStay = ? WHERE EmailAddress = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setString(1, resident.getResidentName());
-            ps.setString(2, resident.getHousingSession());
-            ps.setString(3, resident.getCWL());
-            ps.setInt(4, resident.getStudentNumber());
-            ps.setString(5, resident.getProgram());
-            ps.setString(6, resident.getEmailAddress());
-            ps.setString(7, resident.getLengthOfStay());
-            ps.setInt(8, resident.getEmployeeNumber());
-            ps.setInt(9, resident.getNoOfAccompanyingFamilyMembers());
-            ps.setInt(10, resident.getResidentID());
+            ps.setString(1, resident.getLengthOfStay());
+            ps.setString(2, resident.getEmailAddress());
             int numOfRows = ps.executeUpdate();
             if (numOfRows == 0) {
                 System.out.println(
                         Constants.WARNING_TAG +
-                                "This Resident ID " +
+                                "This Resident" +
                                 resident.getResidentID() +
                                 " does not exist!"
                 );
@@ -48,26 +40,52 @@ public class ResidentHandler implements ModelHandler{
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
         }
     }
-
+    
+    // deletes a student or employee resident
     @Override
     public void delete(Model model, Connection connection) {
         Resident resident = (Resident) model;
-        String query = "DELETE FROM Resident WHERE residentID = ?";
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, resident.getResidentID());
-            int numOfRows = ps.executeUpdate();
-            if (numOfRows == 0) {
-                System.out.println(
-                        Constants.WARNING_TAG +
-                                "This Resident " +
-                                resident.getResidentID() +
-                                " does not exist!"
-                );
+        if(resident.getStudentNumber() != 0) {
+            String query = "DELETE FROM Resident WHERE studentNumber = ?";
+
+            try {
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.setInt(1, resident.getStudentNumber());
+                int numOfRows = ps.executeUpdate();
+                if (numOfRows == 0) {
+                    System.out.println(
+                            Constants.WARNING_TAG +
+                                    "This Resident " +
+                                    resident.getResidentID() +
+                                    " does not exist!"
+                    );
+                }
+                connection.commit();
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
             }
-            connection.commit();
-        } catch (SQLException e) {
-            System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+
+        }
+
+        else if(resident.getEmployeeNumber() != 0) {
+            String query = "DELETE FROM Resident WHERE EmployeeNumber = ?";
+            try {
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.setInt(1, resident.getEmployeeNumber());
+                int numOfRows = ps.executeUpdate();
+                if (numOfRows == 0) {
+                    System.out.println(
+                            Constants.WARNING_TAG +
+                                    "This Resident " +
+                                    resident.getResidentID() +
+                                    " does not exist!"
+                    );
+                }
+                connection.commit();
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+            }
+
         }
 
     }
@@ -82,6 +100,7 @@ public class ResidentHandler implements ModelHandler{
 
             while(resultSet.next()) {
                 Resident resident = new Resident(
+                        resultSet.getInt("residentID"),
                         resultSet.getString("residentName"),
                         resultSet.getString("housingSession"),
                         resultSet.getString("CWL"),
@@ -103,5 +122,3 @@ public class ResidentHandler implements ModelHandler{
     }
 
 }
-
- */
