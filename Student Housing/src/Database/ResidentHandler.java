@@ -1,7 +1,7 @@
-package database;
+package Database;
 
-import model.model;
-import model.Resident;
+import Model.Model;
+import Model.Resident;
 
 import java.sql.*;
 import util.Constants;
@@ -18,7 +18,9 @@ public class ResidentHandler implements ModelHandler{
     @Override
     public void update(Model model, Connection connection) {
         Resident resident = (Resident) model;
-        String query = "UPDATE Resident SET residentName = ?, housingSession = ?, CWL = ?, studentNumber = ?, Program = ?, EmailAddress = ?, LengthofStay = ?, EmployeeNumber = ?, NoOfAccompanysFamilyMembers = ? WHERE residentID = ?";
+        String query = "UPDATE Resident SET residentName = ?, housingSession = ?, CWL = ?, studentNumber = ?, " +
+                "Program = ?, EmailAddress = ?, LengthofStay = ?, EmployeeNumber = ?, NoOfAccompanysFamilyMembers = ? " +
+                "WHERE residentID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, resident.getResidentName());

@@ -1,14 +1,14 @@
-package database;
+package Database;
 
-import model.model;
-import model.RoomInfo;
+import Model.Model;
+import Model.RoomInfo;
 
 
 import java.sql.*;
 import util.Constants;
 import java.util.ArrayList;
 
-private class RoomInfoHandler implements ModelHandler {
+public class RoomInfoHandler implements ModelHandler {
 
     @Override
     public void insert(Model model, Connection connection) {

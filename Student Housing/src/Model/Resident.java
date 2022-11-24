@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 public class Resident extends Model{
     int residentID;
     String residentName;
@@ -25,6 +27,7 @@ public class Resident extends Model{
         this.lengthOfStay = lengthOfStay;
         this.employeeNumber = employeeNumber;
         this.noOfAccompanyingFamilyMembers = noOfAccompanyingFamilyMembers;
+        this.type = ModelType.RESIDENT;
     }
 
     public int getResidentID() {

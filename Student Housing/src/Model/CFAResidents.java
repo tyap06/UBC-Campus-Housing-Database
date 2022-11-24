@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 public class CFAResidents extends Model{
     int campusID;
     int residenceID;
@@ -7,6 +9,7 @@ public class CFAResidents extends Model{
     public CFAResidents(int campusID, int residenceID) {
         this.campusID = campusID;
         this.residenceID = residenceID;
+        this.type = ModelType.CFARESIDENTS;
     }
 
     public int getCampusID() {

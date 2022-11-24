@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 import java.util.Random;
 
 public class Application extends Model{

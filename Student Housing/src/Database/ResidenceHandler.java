@@ -1,7 +1,7 @@
-package database;
+package Database;
 
-import model.model;
-import model.Residence;
+import Model.Model;
+import Model.Residence;
 
 
 import java.sql.*;

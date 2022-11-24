@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 public class Residence extends Model{
     int residenceID;
     String residenceAddress;
@@ -9,6 +11,7 @@ public class Residence extends Model{
         this.residenceID = residenceID;
         this.residenceAddress = residenceAddress;
         this.residenceName = residenceName;
+        this.type = ModelType.RESIDENCE;
     }
 
     public int getResidenceID() {

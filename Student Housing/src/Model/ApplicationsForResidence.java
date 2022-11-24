@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 public class ApplicationsForResidence extends Model{
     int residenceID;
     int applicationID;
@@ -7,6 +9,8 @@ public class ApplicationsForResidence extends Model{
     public ApplicationsForResidence(int residenceID, int applicationID) {
         this.residenceID = residenceID;
         this.applicationID = applicationID;
+        this.type = ModelType.APPLICATIONSFORRESIDENCE;
+
     }
 
     public int getResidenceID() {

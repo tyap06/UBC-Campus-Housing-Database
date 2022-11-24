@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 public class LivesWith extends Model{
     int residentID;
     int otherResidentID;
@@ -7,6 +9,7 @@ public class LivesWith extends Model{
     public LivesWith(int residentID, int otherResidentID) {
         this.residentID = residentID;
         this.otherResidentID = otherResidentID;
+        this.type = ModelType.LIVESWITH;
     }
 
     public int getResidentID() {

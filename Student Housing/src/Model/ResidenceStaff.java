@@ -1,6 +1,8 @@
 package Model;
 
 import java.util.Date;
+import util.ModelType;
+
 
 public class ResidenceStaff extends Model{
     int staffID;
@@ -21,6 +23,7 @@ public class ResidenceStaff extends Model{
         this.buildingMaintenanceTitle = buildingMaintenanceTitle;
         this.diningHall = diningHall;
         this.diningHallPosition = diningHallPosition;
+        this.type = ModelType.RESIDENCESTAFF;
     }
 
     public int getStaffID() {

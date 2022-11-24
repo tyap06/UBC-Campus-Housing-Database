@@ -1,5 +1,7 @@
 package Model;
 
+import util.ModelType;
+
 public class Campus extends Model{
     int campusID;
     String campusName;
@@ -9,6 +11,7 @@ public class Campus extends Model{
         this.campusID = campusID;
         this.campusName = campusName;
         this.campusAddress = campusAddress;
+        this.type = ModelType.CAMPUS;
 
     }
 

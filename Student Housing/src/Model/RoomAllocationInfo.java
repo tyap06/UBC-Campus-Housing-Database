@@ -1,5 +1,8 @@
 package Model;
 
+import util.ModelType;
+
+
 public class RoomAllocationInfo extends Model{
     String house;
     int unitNumber;
@@ -11,6 +14,7 @@ public class RoomAllocationInfo extends Model{
         this.unitNumber = unitNumber;
         this.residentID = residentID;
         this.residenceID = residenceID;
+        this.type = ModelType.ROOMALLOCATIONINFO;
     }
 
     public String getHouse() {

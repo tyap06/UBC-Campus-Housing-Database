@@ -1,5 +1,8 @@
 package Model;
 
+import util.ModelType;
+
+
 public class AmenitiesInResidence extends Model {
     int amenityID;
     int residenceID;
@@ -9,6 +12,7 @@ public class AmenitiesInResidence extends Model {
         this.amenityID = amenityID;
         this.residenceID = residenceID;
         this.noOfRooms = noOfRooms;
+        this.type = ModelType.AMENITIESINRESIDENCE;
     }
 
     public int getAmenityID() {
