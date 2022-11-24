@@ -520,6 +520,60 @@ public class DatabaseConnectionHandler {
         }
         return null;
     }
+    
+    
+    // Aggregation with GROUP BY query
+    // input should be either "Min" or "Max"
+    public String getMinMaxRentByResidence(String minOrMax){
+        StringBuilder output = new StringBuilder();
+
+        if(minOrMax == "Min"){
+            String query1 = "SELECT residenceName, MIN(Rent) AS Rent FROM RoomInfo INNER JOIN Residence ON RoomInfo.residenceID = Residence.residenceID GROUP BY residenceName";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query1);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()){
+                   output.append("Minimum rent for" + rs.getString("residenceName") + "is" + rs.getInt("Rent") + "$" + "\n");
+                }
+
+                rs.close();
+                ps.close();
+
+                return output.toString();
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+
+        }
+        else if(minOrMax == "Max"){
+            String query1 = "SELECT residenceName, MAX(Rent) AS Rent FROM RoomInfo INNER JOIN Residence ON RoomInfo.residenceID = Residence.residenceID GROUP BY residenceName";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query1);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()){
+                    output.append("Maximum rent for" + rs.getString("residenceName") + "is" + rs.getInt("Rent") + "$" + "\n");
+                }
+
+                rs.close();
+                ps.close();
+
+                return output.toString();
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+
+        }
+        return null;
+
+    }
 
 
 }
