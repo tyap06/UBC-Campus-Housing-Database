@@ -49,177 +49,173 @@ public class DatabaseConnectionHandler {
 
     public void delete(Model model) {
         switch (model.type) {
-            case AMENITIES -> {
+            case AMENITIES:
                 AmenitiesHandler amenitiesHandler = new AmenitiesHandler();
                 amenitiesHandler.delete(model, connection);
-            }
-            case AMENITIESINRESIDENCE -> {
+                break;
+            case AMENITIESINRESIDENCE:
                 AmenitiesInResidenceHandler amenitiesInResidenceHandler = new AmenitiesInResidenceHandler();
                 amenitiesInResidenceHandler.delete(model, connection);
-            }
-            case APPLICATION -> {
+                break;
+            case APPLICATION:
                 ApplicationHandler applicationHandler = new ApplicationHandler();
                 applicationHandler.delete(model, connection);
-            }
-            case CAMPUS -> {
+                break;
+            case CAMPUS:
                 CampusHandler campusHandler = new CampusHandler();
                 campusHandler.delete(model, connection);
-            }
-            case RESIDENCE -> {
-                ResidenceHandler residenceHandler = new ResidenceHandler();
+                break;
+            case RESIDENCE:
+                ResidenceHandler residenceHandler = new ResidenceHandler(this);
                 residenceHandler.delete(model, connection);
-            }
-            case RESIDENCEONCAMPUS -> {
+                break;
+            case RESIDENCEONCAMPUS:
                 ResidenceOnCampusHandler residenceOnCampusHandler = new ResidenceOnCampusHandler();
                 residenceOnCampusHandler.delete(model, connection);
-            }
-            case RESIDENT -> {
+                break;
+            case RESIDENT:
                 ResidentHandler residentHandler = new ResidentHandler();
                 residentHandler.delete(model, connection);
-            }
-            case ROOMALLOCATIONINFO -> {
+                break;
+            case ROOMALLOCATIONINFO:
                 RoomAllocationInfoHandler roomAllocationInfoHandler = new RoomAllocationInfoHandler();
                 roomAllocationInfoHandler.delete(model, connection);
-            }
-            case ROOMINFO -> {
+                break;
+            case ROOMINFO:
                 RoomInfoHandler roomInfoHandler = new RoomInfoHandler();
                 roomInfoHandler.delete(model, connection);
-            }
-            default -> {
+                break;
+            default:
 
             }
         }
-    }
+
+
 
     public void update(Model model) {
         switch (model.type) {
-            case AMENITIES -> {
+            case AMENITIES:
                 AmenitiesHandler amenitiesHandler = new AmenitiesHandler();
                 amenitiesHandler.update(model, connection);
-            }
-            case AMENITIESINRESIDENCE -> {
+                break;
+            case AMENITIESINRESIDENCE:
                 AmenitiesInResidenceHandler amenitiesInResidenceHandler = new AmenitiesInResidenceHandler();
                 amenitiesInResidenceHandler.update(model, connection);
-            }
-            case APPLICATION -> {
+                break;
+            case APPLICATION:
                 ApplicationHandler applicationHandler = new ApplicationHandler();
                 applicationHandler.update(model, connection);
-            }
-            case CAMPUS -> {
+                break;
+            case CAMPUS:
                 CampusHandler campusHandler = new CampusHandler();
                 campusHandler.update(model, connection);
-            }
-            case RESIDENCE -> {
-                ResidenceHandler residenceHandler = new ResidenceHandler();
+                break;
+            case RESIDENCE:
+                ResidenceHandler residenceHandler = new ResidenceHandler(this);
                 residenceHandler.update(model, connection);
-            }
-            case RESIDENCEONCAMPUS -> {
+                break;
+            case RESIDENCEONCAMPUS:
                 ResidenceOnCampusHandler residenceOnCampusHandler = new ResidenceOnCampusHandler();
                 residenceOnCampusHandler.update(model, connection);
-            }
-            case RESIDENT -> {
+                break;
+            case RESIDENT:
                 ResidentHandler residentHandler = new ResidentHandler();
                 residentHandler.update(model, connection);
-            }
-            case ROOMALLOCATIONINFO -> {
+                break;
+            case ROOMALLOCATIONINFO:
                 RoomAllocationInfoHandler roomAllocationInfoHandler = new RoomAllocationInfoHandler();
                 roomAllocationInfoHandler.update(model, connection);
-            }
-            case ROOMINFO -> {
+                break;
+            case ROOMINFO:
                 RoomInfoHandler roomInfoHandler = new RoomInfoHandler();
                 roomInfoHandler.update(model, connection);
-            }
-            default -> {
-
-            }
+                break;
+            default:
         }
     }
 
     public void insert(Model model) {
         switch (model.type) {
-            case AMENITIES -> {
+            case AMENITIES:
                 AmenitiesHandler amenitiesHandler = new AmenitiesHandler();
                 amenitiesHandler.insert(model, connection);
-            }
-            case AMENITIESINRESIDENCE -> {
+                break;
+            case AMENITIESINRESIDENCE:
                 AmenitiesInResidenceHandler amenitiesInResidenceHandler = new AmenitiesInResidenceHandler();
                 amenitiesInResidenceHandler.insert(model, connection);
-            }
-            case APPLICATION -> {
+                break;
+            case APPLICATION:
                 ApplicationHandler applicationHandler = new ApplicationHandler();
                 applicationHandler.insert(model, connection);
-            }
-            case CAMPUS -> {
+                break;
+            case CAMPUS:
                 CampusHandler campusHandler = new CampusHandler();
                 campusHandler.insert(model, connection);
-            }
-            case RESIDENCE -> {
-                ResidenceHandler residenceHandler = new ResidenceHandler();
+                break;
+            case RESIDENCE:
+                ResidenceHandler residenceHandler = new ResidenceHandler(this);
                 residenceHandler.insert(model, connection);
-            }
-            case RESIDENCEONCAMPUS -> {
+                break;
+            case RESIDENCEONCAMPUS:
                 ResidenceOnCampusHandler residenceOnCampusHandler = new ResidenceOnCampusHandler();
                 residenceOnCampusHandler.insert(model, connection);
-            }
-            case RESIDENT -> {
+                break;
+            case RESIDENT:
                 ResidentHandler residentHandler = new ResidentHandler();
                 residentHandler.insert(model, connection);
-            }
-            case ROOMALLOCATIONINFO -> {
+                break;
+            case ROOMALLOCATIONINFO:
                 RoomAllocationInfoHandler roomAllocationInfoHandler = new RoomAllocationInfoHandler();
                 roomAllocationInfoHandler.insert(model, connection);
-            }
-            case ROOMINFO -> {
+                break;
+            case ROOMINFO:
                 RoomInfoHandler roomInfoHandler = new RoomInfoHandler();
                 roomInfoHandler.insert(model, connection);
-            }
-            default -> {
-
-            }
+                break;
+            default:
         }
     }
 
     public Model[] getInfo(ModelType type) {
         switch (type) {
-            case AMENITIES -> {
+            case AMENITIES:
                 AmenitiesHandler amenitiesHandler = new AmenitiesHandler();
                 amenitiesHandler.getInfo(connection);
-            }
-            case AMENITIESINRESIDENCE -> {
+                break;
+            case AMENITIESINRESIDENCE:
                 AmenitiesInResidenceHandler amenitiesInResidenceHandler = new AmenitiesInResidenceHandler();
                 amenitiesInResidenceHandler.getInfo(connection);
-            }
-            case APPLICATION -> {
+                break;
+            case APPLICATION:
                 ApplicationHandler applicationHandler = new ApplicationHandler();
                 applicationHandler.getInfo(connection);
-            }
-            case CAMPUS -> {
+                break;
+            case CAMPUS:
                 CampusHandler campusHandler = new CampusHandler();
                 campusHandler.getInfo(connection);
-            }
-            case RESIDENCE -> {
-                ResidenceHandler residenceHandler = new ResidenceHandler();
+                break;
+            case RESIDENCE:
+                ResidenceHandler residenceHandler = new ResidenceHandler(this);
                 residenceHandler.getInfo(connection);
-            }
-            case RESIDENCEONCAMPUS -> {
+                break;
+            case RESIDENCEONCAMPUS:
                 ResidenceOnCampusHandler residenceOnCampusHandler = new ResidenceOnCampusHandler();
                 residenceOnCampusHandler.getInfo(connection);
-            }
-            case RESIDENT -> {
+                break;
+            case RESIDENT:
                 ResidentHandler residentHandler = new ResidentHandler();
                 residentHandler.getInfo(connection);
-            }
-            case ROOMALLOCATIONINFO -> {
+                break;
+            case ROOMALLOCATIONINFO:
                 RoomAllocationInfoHandler roomAllocationInfoHandler = new RoomAllocationInfoHandler();
                 roomAllocationInfoHandler.getInfo(connection);
-            }
-            case ROOMINFO -> {
+                break;
+            case ROOMINFO:
                 RoomInfoHandler roomInfoHandler = new RoomInfoHandler();
                 roomInfoHandler.getInfo(connection);
-            }
-            default -> {
+                break;
+            default:
 
-            }
         }
         return null;
     }

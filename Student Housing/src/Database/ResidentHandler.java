@@ -82,6 +82,7 @@ public class ResidentHandler implements ModelHandler{
 
             while(resultSet.next()) {
                 Resident resident = new Resident(
+                        resultSet.getInt("residentID"),
                         resultSet.getString("residentName"),
                         resultSet.getString("housingSession"),
                         resultSet.getString("CWL"),
@@ -90,8 +91,7 @@ public class ResidentHandler implements ModelHandler{
                         resultSet.getString("EmailAddress"),
                         resultSet.getString("LengthofStay"),
                         resultSet.getInt("EmployeeNumber"),
-                        resultSet.getInt("NoOfAccompanysFamilyMembers")
-                );
+                        resultSet.getInt("NoOfAccompanysFamilyMembers"));
                 res.add(resident);
             }
             resultSet.close();

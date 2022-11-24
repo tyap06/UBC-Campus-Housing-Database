@@ -37,7 +37,7 @@ public class RoomInfoHandler implements ModelHandler {
             while(rs.next()) {
                 RoomInfo roomInfo = new RoomInfo(rs.getString("House"),
                         rs.getInt("unitNumber"),
-                        rs.getString("roomType")
+                        rs.getString("roomType"),
                         rs.getInt("rent"),
                         rs.getInt("residenceID"));
                 result.add(roomInfo);
