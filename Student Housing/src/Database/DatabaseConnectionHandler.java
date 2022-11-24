@@ -220,7 +220,7 @@ public class DatabaseConnectionHandler {
         return null;
     }
     
-    
+    // insert query
     public void addNewApplication(String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession,
                                   String CWL, int studentNumber, String program, String emailAddress, String lengthOfStay, int employeeNumber, int noOfAccompanyingFamilyMembers){
 
@@ -229,6 +229,7 @@ public class DatabaseConnectionHandler {
         appHandler.insert(newApp, connection);
     }
     
+    //delete query
     public void deleteResident(int studentNumber, int employeeNumber) {
         ResidentHandler residentHandler = new ResidentHandler();
 
@@ -243,6 +244,7 @@ public class DatabaseConnectionHandler {
 
     }
     
+    //update query
     public void updateVisitor(String emailAddress, String lengthOfStay) {
         ResidentHandler residentHandler = new ResidentHandler();
 
@@ -250,6 +252,7 @@ public class DatabaseConnectionHandler {
         residentHandler.update(visitor,connection);
     }
     
+    // selection and projection query
     public List<String> getResidentDisplayInfo(int studentNumber, int employeeNumber, String emailAddress){
         List<String> output = new ArrayList<String>(); // output = {name, housing session,house, unit number, residence name, room type, rent}
         int residentID = 0;
