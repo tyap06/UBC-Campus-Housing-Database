@@ -574,6 +574,33 @@ public class DatabaseConnectionHandler {
         return null;
 
     }
+    
+    //Aggregation with HAVING Query
+    // Find the names of all campuses where there is atleast BLANK residences
+    public String getCampusNames(int noOfRes){
+        String query = "SELECT campusName FROM ((residenceOnCampus INNER JOIN Campus ON residenceOnCampus.CampusID = Campus.CampusID) INNER JOIN Residence ON residenceOnCampus.ResidenceID = Residence.residenceID) GROUP BY campusName HAVING COUNT(*) >= ?";
+        StringBuilder output = new StringBuilder();
+        try{
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1,noOfRes);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                output.append(rs.getString("campusName") + "\n");
+            }
+            
+            rs.close();
+            ps.close();
+            
+            return output.toString();
+            
+
+        } catch (SQLException e) {
+            System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+            return null;
+        }
+
+    }
 
 
 }
