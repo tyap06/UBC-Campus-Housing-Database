@@ -249,6 +249,250 @@ public class DatabaseConnectionHandler {
         Resident visitor = new Resident(0,"","","",0,"",emailAddress,lengthOfStay,0,0);
         residentHandler.update(visitor,connection);
     }
+    
+    public List<String> getResidentDisplayInfo(int studentNumber, int employeeNumber, String emailAddress){
+        List<String> output = new ArrayList<String>(); // output = {name, housing session,house, unit number, residence name, room type, rent}
+        int residentID = 0;
+        int residenceID = 0;
+        String house = "";
+        int unitNumber = 0;
+
+        if(studentNumber != 0) {
+            String query1 = "SELECT residentID, residentName, housingSession FROM Resident WHERE studentNumber = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query1);
+                ps.setInt(1,studentNumber);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    residentID = rs.getInt("residentID");
+
+                    output.add(rs.getString("residentName"));
+                    output.add(rs.getString("housingSession"));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            ////////////////
+            String query2 = "SELECT House, unitNumber, residenceID FROM RoomAllocationInfo WHERE residentID = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query2);
+                ps.setInt(1,residentID);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    residenceID = rs.getInt("residenceID");
+                    house = rs.getString("House");
+                    unitNumber= rs.getInt("unitNumber");
+
+                    output.add(house);
+                    output.add(String.valueOf(unitNumber));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            /////////////////////////////
+            String query3 = "SELECT residenceName FROM Residence WHERE residenceID = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query3);
+                ps.setInt(1,residenceID);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    output.add(rs.getString("residenceName"));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            ///////////////////////////
+            String query4 = "SELECT roomType, Rent FROM RoomInfo WHERE House = ? AND unitNumber = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query4);
+                ps.setString(1, house);
+                ps.setInt(2, unitNumber);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    output.add(rs.getString("roomType"));
+                    output.add(String.valueOf(rs.getInt("Rent")));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+
+            return output;
+
+        }
+        else if(employeeNumber != 0){
+            String query1 = "SELECT residentID, residentName, housingSession FROM Resident WHERE EmployeeNumber = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query1);
+                ps.setInt(1,employeeNumber);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    residentID = rs.getInt("residentID");
+
+                    output.add(rs.getString("residentName"));
+                    output.add(rs.getString("housingSession"));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            ////////////////
+            String query2 = "SELECT House, unitNumber, residenceID FROM RoomAllocationInfo WHERE residentID = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query2);
+                ps.setInt(1,residentID);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    residenceID = rs.getInt("residenceID");
+                    house = rs.getString("House");
+                    unitNumber= rs.getInt("unitNumber");
+
+                    output.add(house);
+                    output.add(String.valueOf(unitNumber));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            /////////////////////////////
+            String query3 = "SELECT residenceName FROM Residence WHERE residenceID = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query3);
+                ps.setInt(1,residenceID);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    output.add(rs.getString("residenceName"));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            ///////////////////////////
+            String query4 = "SELECT roomType, Rent FROM RoomInfo WHERE House = ? AND unitNumber = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query4);
+                ps.setString(1, house);
+                ps.setInt(2, unitNumber);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    output.add(rs.getString("roomType"));
+                    output.add(String.valueOf(rs.getInt("Rent")));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+
+            return output;
+
+        }
+        else if(emailAddress != "") {
+            String query1 = "SELECT residentID, residentName, housingSession FROM Resident WHERE EmailAddress = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query1);
+                ps.setString(1,emailAddress);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    residentID = rs.getInt("residentID");
+
+                    output.add(rs.getString("residentName"));
+                    output.add(rs.getString("housingSession"));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            ////////////////
+            String query2 = "SELECT House, unitNumber, residenceID FROM RoomAllocationInfo WHERE residentID = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query2);
+                ps.setInt(1,residentID);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    residenceID = rs.getInt("residenceID");
+                    house = rs.getString("House");
+                    unitNumber= rs.getInt("unitNumber");
+
+                    output.add(house);
+                    output.add(String.valueOf(unitNumber));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            /////////////////////////////
+            String query3 = "SELECT residenceName FROM Residence WHERE residenceID = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query3);
+                ps.setInt(1,residenceID);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    output.add(rs.getString("residenceName"));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+            ///////////////////////////
+            String query4 = "SELECT roomType, Rent FROM RoomInfo WHERE House = ? AND unitNumber = ?";
+
+            try{
+                PreparedStatement ps = connection.prepareStatement(query4);
+                ps.setString(1, house);
+                ps.setInt(2, unitNumber);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    output.add(rs.getString("roomType"));
+                    output.add(String.valueOf(rs.getInt("Rent")));
+                }
+
+            } catch (SQLException e) {
+                System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+                return null;
+            }
+
+            return output;
+
+        }
+        return null;
+    }
 
 
 }
