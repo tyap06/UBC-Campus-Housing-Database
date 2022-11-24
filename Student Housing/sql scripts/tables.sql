@@ -56,16 +56,23 @@ applicationID			int		PRIMARY KEY,
 applicantName			varchar(75)	NOT NULL,
 residentType		varchar(30)	NOT NULL,
 1stPrefRoom		varchar(50)	NOT NULL,				
-2ndPrefRoom		varchar(50)	NOT NULL, -- null?
+2ndPrefRoom		varchar(50)	, -- removed not null
 1stPrefResidence	varchar(75)	NOT NULL,
-2ndPrefResidence	varchar(75)	NOT NULL		-- null?
+2ndPrefResidence	varchar(75), 		-- removed not null
+housingSession				varchar(75)	NOT NULL,	
+CWL					varchar(10)	UNIQUE,           -- added all below fields from resident
+studentNumber			int		UNIQUE,
+Program				varchar(75),	
+EmailAddress				varchar(50)	UNIQUE,
+LengthofStay				varchar(50),	
+EmployeeNumber			int,		
+NoOfAccompanysFamilyMembers	int
 );
 
-INSERT INTO Application VALUES(201,	'Roger Brown',	'Student',	'Studio',	'2 Bedroom',	'Totem Park',	'Walter Gage');
-INSERT INTO Application VALUES(202,	'Catherine Davis',	'Visitor',	'2 Bedroom',	'Studio',	'Ponderosa Commons',	'Marine Drive');
-INSERT INTO Application VALUES(203,	'Nancy Drew',	'UBC Teaching Staff',	'4 Bedroom',	'4 Bedroom',	'Brock Commons',	'Marine Drive');
-INSERT INTO Application VALUES(204,	'Joseph Miller',	'Visitor',	'1 Bedroom',	'2 Bedroom',	'Thunderbird Residence',	'Ponderosa Commons');
-INSERT INTO Application VALUES(205,	'Grayson Williams',	'UBC Teaching Staff',	'Nano Suite',	'1 Bedroom',	'Orchard Commons',	'Thunderbird Residence');
+INSERT INTO Application VALUES(201,	'Roger Brown',	'Student',	'Studio',	'2 Bedroom',	'Totem Park',	NULL, '2021W', 'rogerb', 78627864, "Undergraduate", NULL, NULL, NULL, NULL);
+INSERT INTO Application VALUES(202,	'Catherine Davis',	'Visitor',	'2 Bedroom',	'Studio',	'Ponderosa Commons',	'Marine Drive', '2022S', Null, null, null, 'cat57davis@gmail.com', '2 weeks', null, null);
+-- INSERT INTO Application VALUES(203,	'Nancy Drew',	'UBC Teaching Staff',	'4 Bedroom',	'4 Bedroom',	'Brock Commons',	'Marine Drive');
+
 
 
 CREATE TABLE CFA (
@@ -89,7 +96,7 @@ Program				varchar(75)
 EmailAddress				varchar(50)	UNIQUE,
 LengthofStay				varchar(50)	
 EmployeeNumber			int,		
-NoOfAccompanysFamilyMembers	int
+NoOfAccompanyingFamilyMembers	int
 
 );
 
@@ -118,8 +125,8 @@ INSERT INTO RoomInfo VALUES('McDonald',	2-314-3,	'Studio',	1300, 44);
 CREATE TABLE RoomAllocationInfo (
 House					varchar(20)	PRIMARY KEY,
 unitNumber				int		PRIMARY KEY,
-residentID				int		PRIMARY KEY, -- no pk
-residenceID       int   PRIMARY KEY, -- added, no pk
+residentID				int, -- no pk
+residenceID       int, -- added, no pk
 -- residentName					varchar(100)	NOT NULL,
 -- Session				varchar(75)	NOT NULL,	
 -- CWL					varchar(10)	UNIQUE,
@@ -129,7 +136,7 @@ residenceID       int   PRIMARY KEY, -- added, no pk
 -- Length of Stay				varchar(50),	
 -- Employee Number			int,		UNIQUE		
 -- NoOfAccompanysFamilyMembers	int,
-FOREIGN KEY(House, Unit Number) REFERENCES RoomInfo ON DELETE CASCADE,
+FOREIGN KEY(House, UnitNumber) REFERENCES RoomInfo ON DELETE CASCADE,
 FOREIGN KEY (ResidentID ) REFERENCES Resident ON DELETE CASCADE,
 FOREIGN KEY (residenceID) REFERENCES Residence ON DELETE CASCADE
 );
@@ -143,8 +150,8 @@ INSERT INTO RoomAllocationInfo VALUES('McDonald',	2-314-3, 55, 44);
 
 CREATE TABLE Works (
 	residenceStaffID			int,
-	residenceID				int,
-	PRIMARY KEY(ResidenceStaffID, ResidenceID), -- pk remove
+	residenceID				int, 
+	PRIMARY KEY(ResidenceStaffID, ResidenceID), 
 	FOREIGN KEY(ResidenceStaffID) REFERENCES ResidenceStaff ON DELETE CASCADE,
 	FOREIGN KEY(ResidenceID) REFERENCES Residence ON DELETE CASCADE,
 );
@@ -159,16 +166,13 @@ INSERT INTO Works VALUES(67005,	150);
 CREATE TABLE LivesWith  (
 	residentID				int,
 	otherResidentID			int,
-	PRIMARY KEY(residentID, otherResidentID), -- should only be residentID
+	PRIMARY KEY(residentID, otherResidentID), 
 	FOREIGN KEY(ResidentID) REFERENCES Resident ON DELETE CASCADE,
 	FOREIGN KEY(OtherResidentID) REFERENCES Resident ON DELETE CASCADE,
 );
 
 INSERT INTO LivesWith VALUES(44, NULL);
-INSERT INTO LivesWith VALUES();
-INSERT INTO LivesWith VALUES();
-INSERT INTO LivesWith VALUES();
-INSERT INTO LivesWith VALUES();
+
 
 
 CREATE TABLE amenitiesInResidence(
@@ -201,16 +205,16 @@ INSERT INTO CFAresidents VALUES(11, 38562);
 CREATE TABLE residenceOnCampus(
 	CampusID				int,
 	ResidenceID				int,
-	PRIMARY KEY(CampusID, ResidenceID), -- pk??
+	PRIMARY KEY(CampusID, ResidenceID), 
 	FOREIGN KEY(CampusID) REFERENCES Campus ON DELETE CASCADE, 
 	FOREIGN KEY(ResidenceID) REFERENCES Residence ON DELETE CASCADE,
 );
 
 INSERT INTO residenceOnCampus VALUES(1, 110);
 INSERT INTO residenceOnCampus VALUES(2, 130);
-INSERT INTO residenceOnCampus VALUES();
-INSERT INTO residenceOnCampus VALUES();
-INSERT INTO residenceOnCampus VALUES();
+INSERT INTO residenceOnCampus VALUES(1, 120);
+INSERT INTO residenceOnCampus VALUES(1, 140);
+INSERT INTO residenceOnCampus VALUES(2, 150);
 
 CREATE TABLE applicationsForResidence(
 	ResidenceID				int,
@@ -221,5 +225,5 @@ CREATE TABLE applicationsForResidence(
 );
 
 INSERT INTO applicationsForResidence VALUES(110, 201);
-INSERT INTO applicationsForResidence VALUES();
-INSERT INTO applicationsForResidence VALUES();
+INSERT INTO applicationsForResidence VALUES(140, 202);
+

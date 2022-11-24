@@ -1,14 +1,18 @@
 package Model;
 
-public class AmenitiesResidence {
+import util.ModelType;
+
+
+public class AmenitiesInResidence extends Model {
     int amenityID;
     int residenceID;
     int noOfRooms;
 
-    public AmenitiesResidence(int amenityID, int residenceID, int noOfRooms) {
+    public AmenitiesInResidence(int amenityID, int residenceID, int noOfRooms) {
         this.amenityID = amenityID;
         this.residenceID = residenceID;
         this.noOfRooms = noOfRooms;
+        this.type = ModelType.AMENITIESINRESIDENCE;
     }
 
     public int getAmenityID() {

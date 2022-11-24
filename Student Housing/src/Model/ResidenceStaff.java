@@ -1,8 +1,10 @@
 package Model;
 
 import java.util.Date;
+import util.ModelType;
 
-public class ResidenceStaff {
+
+public class ResidenceStaff extends Model{
     int staffID;
     String staffName;
     Date birthDate;
@@ -21,6 +23,7 @@ public class ResidenceStaff {
         this.buildingMaintenanceTitle = buildingMaintenanceTitle;
         this.diningHall = diningHall;
         this.diningHallPosition = diningHallPosition;
+        this.type = ModelType.RESIDENCESTAFF;
     }
 
     public int getStaffID() {

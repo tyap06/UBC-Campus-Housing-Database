@@ -1,6 +1,8 @@
 package Model;
 
-public class RoomInfo {
+import util.ModelType;
+
+public class RoomInfo extends Model{
     String house;
     int unitNumber;
     String roomType;
@@ -13,6 +15,7 @@ public class RoomInfo {
         this.roomType = roomType;
         this.rent = rent;
         this.residenceID = residenceID;
+        this.type = ModelType.ROOMINFO;
 
     }
 
