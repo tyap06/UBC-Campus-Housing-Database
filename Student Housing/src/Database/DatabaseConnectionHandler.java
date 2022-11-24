@@ -219,6 +219,15 @@ public class DatabaseConnectionHandler {
         }
         return null;
     }
+    
+    
+    public void addNewApplication(String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession,
+                                  String CWL, int studentNumber, String program, String emailAddress, String lengthOfStay, int employeeNumber, int noOfAccompanyingFamilyMembers){
+
+        ApplicationHandler appHandler = new ApplicationHandler();
+        Application newApp = new Application(applicantName, residentType, firstPrefRoom, secondPrefRoom, firstPrefResidence, secondPrefResidence, housingSession, CWL, studentNumber, program, emailAddress, lengthOfStay, employeeNumber, noOfAccompanyingFamilyMembers);
+        appHandler.insert(newApp, connection);
+    }
 
 
 }
