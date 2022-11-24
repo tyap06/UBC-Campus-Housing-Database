@@ -228,6 +228,20 @@ public class DatabaseConnectionHandler {
         Application newApp = new Application(applicantName, residentType, firstPrefRoom, secondPrefRoom, firstPrefResidence, secondPrefResidence, housingSession, CWL, studentNumber, program, emailAddress, lengthOfStay, employeeNumber, noOfAccompanyingFamilyMembers);
         appHandler.insert(newApp, connection);
     }
+    
+    public void deleteResident(int studentNumber, int employeeNumber) {
+        ResidentHandler residentHandler = new ResidentHandler();
+
+        if(studentNumber != 0) {
+            Resident resident = new Resident(0,"","","",studentNumber,"","","",0,0);
+            residentHandler.delete(resident,connection);
+        }
+        else if (employeeNumber != 0) {
+            Resident resident = new Resident(0,"","","",0,"","","",employeeNumber,0);
+            residentHandler.delete(resident,connection);
+        }
+
+    }
 
 
 }
