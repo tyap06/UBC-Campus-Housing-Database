@@ -2,10 +2,12 @@ package Database;
 
 import Model.Model;
 import Model.RoomInfo;
-
-
-import java.sql.*;
 import util.Constants;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RoomInfoHandler implements ModelHandler {
@@ -37,7 +39,7 @@ public class RoomInfoHandler implements ModelHandler {
             while(rs.next()) {
                 RoomInfo roomInfo = new RoomInfo(rs.getString("House"),
                         rs.getInt("unitNumber"),
-                        rs.getString("roomType")
+                        rs.getString("roomType"),
                         rs.getInt("rent"),
                         rs.getInt("residenceID"));
                 result.add(roomInfo);

@@ -2,19 +2,25 @@ package Database;
 
 import Model.Model;
 import Model.Residence;
-
-
-import java.sql.*;
 import util.Constants;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
 public class ResidenceHandler implements ModelHandler {
+
+    /*
     private final DatabaseConnectionHandler dbHandler;
 
     public ResidenceHandler(DatabaseConnectionHandler dbHandler) {
         this.dbHandler = dbHandler;
     }
+
+     */
 
     @Override
     public void insert(Model model, Connection connection) {

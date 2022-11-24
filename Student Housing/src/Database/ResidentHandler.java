@@ -7,7 +7,7 @@ import java.sql.*;
 import util.Constants;
 import java.util.ArrayList;
 
-
+/*
 public class ResidentHandler implements ModelHandler{
 
     @Override
@@ -103,3 +103,5 @@ public class ResidentHandler implements ModelHandler{
     }
 
 }
+
+ */

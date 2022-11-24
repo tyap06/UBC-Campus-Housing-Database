@@ -1,13 +1,6 @@
 package Database;
 
-import Model.*;
-import Database.ResidenceOnCampusHandler;
-import util.Constants;
-import util.ModelType;
-
-import java.sql.*;
-import java.util.Date;
-
+/*
 public class DatabaseConnectionHandler {
     private Connection connection = null;
 
@@ -227,4 +220,6 @@ public class DatabaseConnectionHandler {
 
 }
 
+
+ */
 
