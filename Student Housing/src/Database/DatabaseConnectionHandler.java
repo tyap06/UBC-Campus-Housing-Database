@@ -274,6 +274,8 @@ public class DatabaseConnectionHandler {
                     output.add(rs.getString("residentName"));
                     output.add(rs.getString("housingSession"));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -295,6 +297,8 @@ public class DatabaseConnectionHandler {
                     output.add(house);
                     output.add(String.valueOf(unitNumber));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -311,6 +315,8 @@ public class DatabaseConnectionHandler {
                 while (rs.next()) {
                     output.add(rs.getString("residenceName"));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -329,6 +335,8 @@ public class DatabaseConnectionHandler {
                     output.add(rs.getString("roomType"));
                     output.add(String.valueOf(rs.getInt("Rent")));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -352,6 +360,8 @@ public class DatabaseConnectionHandler {
                     output.add(rs.getString("residentName"));
                     output.add(rs.getString("housingSession"));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -373,6 +383,8 @@ public class DatabaseConnectionHandler {
                     output.add(house);
                     output.add(String.valueOf(unitNumber));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -389,6 +401,8 @@ public class DatabaseConnectionHandler {
                 while (rs.next()) {
                     output.add(rs.getString("residenceName"));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -407,6 +421,8 @@ public class DatabaseConnectionHandler {
                     output.add(rs.getString("roomType"));
                     output.add(String.valueOf(rs.getInt("Rent")));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -430,6 +446,8 @@ public class DatabaseConnectionHandler {
                     output.add(rs.getString("residentName"));
                     output.add(rs.getString("housingSession"));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -451,6 +469,8 @@ public class DatabaseConnectionHandler {
                     output.add(house);
                     output.add(String.valueOf(unitNumber));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -467,6 +487,8 @@ public class DatabaseConnectionHandler {
                 while (rs.next()) {
                     output.add(rs.getString("residenceName"));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -485,6 +507,8 @@ public class DatabaseConnectionHandler {
                     output.add(rs.getString("roomType"));
                     output.add(String.valueOf(rs.getInt("Rent")));
                 }
+                rs.close();
+                ps.close();
 
             } catch (SQLException e) {
                 System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
