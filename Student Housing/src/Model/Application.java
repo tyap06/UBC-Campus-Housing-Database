@@ -5,7 +5,7 @@ import util.ModelType;
 import java.util.Random;
 
 public class Application extends Model{
-    private final int applicationID;
+    private int applicationID;
     private final String applicantName;
     private final String residentType;
     private final String firstPrefRoom;
@@ -53,6 +53,10 @@ public class Application extends Model{
 
     public int getApplicationID() {
         return this.applicationID;
+    }
+
+    public void setApplicationID(int databaseID) {
+        this.applicationID = databaseID;
     }
 
     public String getApplicantName() {

@@ -3,7 +3,7 @@ package Database;
 import Model.Application;
 import Model.Model;
 import util.Constants;
-import java.util.Random;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -124,6 +124,7 @@ public class ApplicationHandler implements ModelHandler{
                         resultSet.getInt("EmployeeNumber"),
                         resultSet.getInt("NoOfAccompanysFamilyMembers")
                 );
+                app.setApplicationID(resultSet.getInt("applicationID"));
                 res.add(app);
             }
             resultSet.close();
