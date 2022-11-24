@@ -242,6 +242,13 @@ public class DatabaseConnectionHandler {
         }
 
     }
+    
+    public void updateVisitor(String emailAddress, String lengthOfStay) {
+        ResidentHandler residentHandler = new ResidentHandler();
+
+        Resident visitor = new Resident(0,"","","",0,"",emailAddress,lengthOfStay,0,0);
+        residentHandler.update(visitor,connection);
+    }
 
 
 }
