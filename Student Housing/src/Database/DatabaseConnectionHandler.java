@@ -590,7 +590,7 @@ public class DatabaseConnectionHandler {
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-            return null;
+            return "There are no campuses with that many residences";
         }
 
     }
@@ -617,7 +617,7 @@ public class DatabaseConnectionHandler {
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-            return null;
+            return "There are no residences with that amenity";
         }
 
     }
@@ -642,7 +642,7 @@ public class DatabaseConnectionHandler {
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-            return null;
+            return "There are no residences with all the amenities";
         }
     }
 
