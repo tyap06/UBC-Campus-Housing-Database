@@ -632,7 +632,7 @@ public class DatabaseConnectionHandler {
     //Division query
     // Finds the residences that have all the amenities
     public String getAllResWithAllAmenities(){
-        String query = "SELECT residenceName FROM Residence WHERE NOT EXISTS ((SELECT AmenityID FROM Amenities) EXCEPT (SELECT AmenityID FROM amenitiesInResidence WHERE amenitiesInResidence.ResidenceID = residence.ResidenceID))";
+        String query = "SELECT residenceName FROM Residence WHERE NOT EXISTS ((SELECT AmenityID FROM Amenities) MINUS (SELECT AmenityID FROM amenitiesInResidence WHERE amenitiesInResidence.ResidenceID = residence.ResidenceID))";
         StringBuilder output = new StringBuilder();
 
         try{
