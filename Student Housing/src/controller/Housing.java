@@ -60,6 +60,13 @@ public class Housing {
         return dbHandler.getAllResWithAllAmenities();
 
     }
+    
+    // function: Find the average rent for each room type for the given residence
+    // input: residence name
+    // output: string with each room type and average rent
+    public String nestedAggQuery(String residenceName){
+        return dbHandler.getAvgRentPerRoomForResidence(residenceName);
+    }
 
 
 
