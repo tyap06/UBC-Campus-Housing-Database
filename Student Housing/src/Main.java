@@ -8,7 +8,7 @@ public class Main {
             // create instance of the LoginWindow
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.CreateLoginForm();
-            loginWindow.setSize(400,200); // set size of frame
+            loginWindow.setSize(600,200); // set size of frame
             loginWindow.setVisible(true);
             loginWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }

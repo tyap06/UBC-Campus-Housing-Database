@@ -1,8 +1,22 @@
 package Database;
 
 
+import Model.Model;
+import util.Constants;
+import util.ModelType;
+
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseConnectionHandler {
+
+
     private Connection connection = null;
+
 
 
     public DatabaseConnectionHandler() {
@@ -59,7 +73,7 @@ public class DatabaseConnectionHandler {
                 campusHandler.delete(model, connection);
                 break;
             case RESIDENCE:
-                ResidenceHandler residenceHandler = new ResidenceHandler(this);
+                ResidenceHandler residenceHandler = new ResidenceHandler();
                 residenceHandler.delete(model, connection);
                 break;
             case RESIDENCEONCAMPUS:
@@ -104,7 +118,7 @@ public class DatabaseConnectionHandler {
                 campusHandler.update(model, connection);
                 break;
             case RESIDENCE:
-                ResidenceHandler residenceHandler = new ResidenceHandler(this);
+                ResidenceHandler residenceHandler = new ResidenceHandler();
                 residenceHandler.update(model, connection);
                 break;
             case RESIDENCEONCAMPUS:
@@ -146,7 +160,7 @@ public class DatabaseConnectionHandler {
                 campusHandler.insert(model, connection);
                 break;
             case RESIDENCE:
-                ResidenceHandler residenceHandler = new ResidenceHandler(this);
+                ResidenceHandler residenceHandler = new ResidenceHandler();
                 residenceHandler.insert(model, connection);
                 break;
             case RESIDENCEONCAMPUS:
@@ -188,7 +202,7 @@ public class DatabaseConnectionHandler {
                 campusHandler.getInfo(connection);
                 break;
             case RESIDENCE:
-                ResidenceHandler residenceHandler = new ResidenceHandler(this);
+                ResidenceHandler residenceHandler = new ResidenceHandler();
                 residenceHandler.getInfo(connection);
                 break;
             case RESIDENCEONCAMPUS:
@@ -650,5 +664,5 @@ public class DatabaseConnectionHandler {
 }
 
 
- 
+
 

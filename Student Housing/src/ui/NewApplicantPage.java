@@ -151,4 +151,6 @@ public class NewApplicantPage extends JFrame {
 
     }
 
+    //TODO action handler for checkboxes and button
+
 }
