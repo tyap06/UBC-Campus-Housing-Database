@@ -216,6 +216,10 @@ INSERT INTO amenitiesInResidence VALUES(2345, 130, 2);
 INSERT INTO amenitiesInResidence VALUES(2349, 140, 1);
 INSERT INTO amenitiesInResidence VALUES(2346, 140, 2);
 INSERT INTO amenitiesInResidence VALUES(2349, 150, 4);
+INSERT INTO amenitiesInResidence VALUES(2346, 130, 2);
+INSERT INTO amenitiesInResidence VALUES(2347, 130, 1);
+INSERT INTO amenitiesInResidence VALUES(2348, 130, 1);
+INSERT INTO amenitiesInResidence VALUES(2349, 130, 4);
 
 
 CREATE TABLE CFAresidents (
