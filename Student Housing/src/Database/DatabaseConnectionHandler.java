@@ -1,6 +1,6 @@
 package Database;
 
-/*
+
 public class DatabaseConnectionHandler {
     private Connection connection = null;
 
@@ -650,5 +650,5 @@ public class DatabaseConnectionHandler {
 }
 
 
- */
+ 
 
