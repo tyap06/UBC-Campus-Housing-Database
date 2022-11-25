@@ -128,6 +128,7 @@ INSERT INTO Resident VALUES(33,	'William Jones',	'2022W',	'WillJones44',	NULL,	N
 INSERT INTO Resident VALUES(44,	'Sarah Clark',	'2022W',	'Sclark99',	NULL,	NULL,	NULL,	NULL,	574,	2);
 INSERT INTO Resident VALUES(55,	'George Shrinks',	'2021W',	'Shrinks123',	NULL,	NULL,	'gshrinks123@gmail.com','7days',	NULL,	NULL);
 INSERT INTO Resident VALUES(66, 'Jessica Parker',	'2022W',	'127Jess',	28920292,	'Graduate',	NULL,	NULL,	NULL,	Null);
+INSERT INTO Resident VALUES(77, 'John Wall',	'2022W',	'JWall02',	65462203,	'Undergraduate',	NULL,	NULL,	NULL,	Null);
 
 CREATE TABLE RoomInfo (
                           House					varchar(20),
@@ -144,6 +145,9 @@ INSERT INTO RoomInfo VALUES('Maple',	123,	'Shared four-bedroom', 965, 120);
 INSERT INTO RoomInfo VALUES('Selkirk', 321,	'Shared four-bedroom', 965, 130);
 INSERT INTO RoomInfo VALUES('Columbia',	124,	'Shared four-bedroom', 965, 140);
 INSERT INTO RoomInfo VALUES('McDonald',	314,	'Studio',	1300, 110);
+INSERT INTO RoomInfo VALUES('McDonald',	315,	'Studio',	1450, 110);
+INSERT INTO RoomInfo VALUES('Bartlett',	115,	'Connected Bathroom', 900, 110);
+
 
 CREATE TABLE RoomAllocationInfo (
                                     House					varchar(20),
@@ -169,7 +173,9 @@ INSERT INTO RoomAllocationInfo VALUES('Bartlett',	114,	11, 110);
 INSERT INTO RoomAllocationInfo VALUES('Maple',	123,	22, 120);
 INSERT INTO RoomAllocationInfo VALUES('Selkirk',	321,	44, 130);
 INSERT INTO RoomAllocationInfo VALUES('Columbia',	124,	33, 120);
-INSERT INTO RoomAllocationInfo VALUES('McDonald',	314, 55, 150);
+INSERT INTO RoomAllocationInfo VALUES('McDonald',	314, 55, 110);
+INSERT INTO RoomAllocationInfo VALUES('McDonald',	315, 66, 110);
+INSERT INTO RoomAllocationInfo VALUES('Bartlett',	115,	77, 110);
 
 
 CREATE TABLE Works (
