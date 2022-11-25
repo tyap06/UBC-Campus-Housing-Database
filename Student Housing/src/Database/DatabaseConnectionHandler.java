@@ -594,6 +594,33 @@ public class DatabaseConnectionHandler {
         }
 
     }
+    
+    //Join query
+    //Find all residences that have the given amenity
+    public String getResForAmenity(String amenity){
+        String query = "SELECT residenceName FROM ((amenitiesInResidence INNER JOIN Amenities  ON amenitiesInResidence.AmenityID = Amenities.amenityID) INNER JOIN Residence ON amenitiesInResidence.ResidenceID = Residence.residenceID) WHERE amenityName = ?";
+        StringBuilder output = new StringBuilder();
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1,amenity);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                output.append(rs.getString("residenceName" + "\n"));
+            }
+
+            rs.close();
+            ps.close();
+
+            return output.toString();
+
+        } catch (SQLException e) {
+            System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+            return null;
+        }
+
+    }
 
 
 }
