@@ -621,6 +621,30 @@ public class DatabaseConnectionHandler {
         }
 
     }
+    
+    //Division query
+    // Finds the residences that have all the amenities
+    public String getAllResWithAllAmenities(){
+        String query = "SELECT residenceName FROM Residence WHERE NOT EXISTS ((SELECT AmenityID FROM Amenities) EXCEPT (SELECT AmenityID FROM amenitiesInResidence WHERE amenitiesInResidence.ResidenceID = residence.ResidenceID))";
+        StringBuilder output = new StringBuilder();
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                output.append(rs.getString("residenceName") + "\n");
+            }
+
+            rs.close();
+            ps.close();
+            return output.toString();
+
+        } catch (SQLException e) {
+            System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+            return null;
+        }
+    }
 
 
 }
