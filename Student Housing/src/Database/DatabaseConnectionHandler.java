@@ -1,5 +1,12 @@
 package Database;
 
+import Model.*;
+import util.Constants;
+import util.ModelType;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import Model.Model;
 import util.Constants;
@@ -604,7 +611,7 @@ public class DatabaseConnectionHandler {
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-            return null;
+            return "There are no campuses with that many residences";
         }
 
     }
@@ -631,7 +638,7 @@ public class DatabaseConnectionHandler {
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-            return null;
+            return "There are no residences with that amenity";
         }
 
     }
@@ -656,8 +663,34 @@ public class DatabaseConnectionHandler {
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
-            return null;
+            return "There are no residences with all the amenities";
         }
+    }
+    
+    // Nested Aggregation with GROUP BY Query
+    public String getAvgRentPerRoomForResidence(String residenceName){
+        String query = "SELECT roomType, AVG(rent) as Rent FROM RoomInfo WHERE residenceID IN (SELECT residenceID FROM Residence WHERE residenceName = ?) GROUP BY roomType";
+        StringBuilder output = new StringBuilder();
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1,residenceName);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                output.append("Average Rent for a" + rs.getString("roomType") + "in" + residenceName + "is" + rs.getInt("Rent")+"$" + "\n");
+            }
+
+            rs.close();
+            ps.close();
+            return output.toString();
+
+        } catch (SQLException e) {
+            System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
+            return "This residence does not exist";
+        }
+
+
     }
 
 
