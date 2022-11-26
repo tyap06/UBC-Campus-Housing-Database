@@ -985,7 +985,8 @@ public class DatabaseConnectionHandler {
 
     // Nested Aggregation with GROUP BY Query
     public String getAvgRentPerRoomForResidence(String residenceName){
-        String query = "SELECT roomType, AVG(rent) as Rent FROM RoomInfo WHERE residenceID IN (SELECT residenceID FROM Residence WHERE residenceName = ?) GROUP BY roomType";
+        String query = "SELECT roomType, AVG(rent) as Rent FROM RoomInfo WHERE residenceID IN " +
+                "(SELECT residenceID FROM Residence WHERE residenceName = ?) GROUP BY roomType";
         StringBuilder output = new StringBuilder();
 
         try{
@@ -994,7 +995,7 @@ public class DatabaseConnectionHandler {
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
-                output.append("Average Rent for a" + rs.getString("roomType") + "in" + residenceName + "is" + rs.getInt("Rent")+"$" + "\n");
+                output.append("     Average Rent for a " + rs.getString("roomType") + " in " + residenceName + " is " + rs.getInt("Rent")+"$" + "\n");
             }
 
             rs.close();
