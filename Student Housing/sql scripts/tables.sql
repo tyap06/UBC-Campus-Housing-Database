@@ -95,6 +95,9 @@ CREATE TABLE Application (
 INSERT INTO Application VALUES(201,	'Roger Brown',	'Student',	'Studio',	'2 Bedroom',	'Totem Park',	NULL, '2021W', 'rogerb', 78627864, 'Undergraduate', NULL, NULL, NULL, NULL);
 INSERT INTO Application VALUES(202,	'Catherine Davis',	'Visitor',	'2 Bedroom',	'Studio',	'Ponderosa Commons',	'Marine Drive', '2022S', Null, null, null, 'cat57davis@gmail.com', '2 weeks', null, null);
 -- -- INSERT INTO Application VALUES(203,	'Nancy Drew',	'UBC Teaching Staff',	'4 Bedroom',	'4 Bedroom',	'Brock Commons',	'Marine Drive');
+INSERT INTO Application VALUES(203,	'John Cena',	'Student',	'Connected Bathroom',	'2 Bedroom',	'Totem Park',	'Thunderbird Residences', '2023W', 'jCena69', 65462269, 'Undergraduate', 'itsJohnCenaBaby@gmail.com', null, null, null);
+INSERT INTO Application VALUES(204,	'Mike Wazowski',	'Visitor',	'3 Bedroom',	'2 Bedroom',	'Orchard Commons',	'Walter Gage', '2022W', null, null, null, 'mikeWazzup@gmail.com', '5 years', null, null);
+INSERT INTO Application VALUES(205,	'Ylong Musk',	'Employee',	'Studio',	'1 Bedroom',	'Vanier',	'Walter Gage', '2023S', null, null, null, 'YMusk666@gmail.com', '25 years', 99997654, 1);
 
 
 
@@ -201,6 +204,12 @@ CREATE TABLE LivesWith  (
                             FOREIGN KEY(OtherResidentID) REFERENCES Resident ON DELETE CASCADE
 );
 
+INSERT INTO LivesWith VALUES(11, 22);
+INSERT INTO LivesWith VALUES(11, 33);
+INSERT INTO LivesWith VALUES(11, 44);
+INSERT INTO LivesWith VALUES(11, 55);
+INSERT INTO LivesWith VALUES(66, 77);
+
 
 CREATE TABLE amenitiesInResidence(
                                      AmenityID				int,
@@ -232,6 +241,9 @@ CREATE TABLE CFAresidents (
 
 INSERT INTO CFAresidents VALUES(44, 38911);
 INSERT INTO CFAresidents VALUES(11, 38562);
+INSERT INTO CFAresidents VALUES(33, 38911);
+INSERT INTO CFAresidents VALUES(22, 38957);
+INSERT INTO CFAresidents VALUES(55, 39275);
 
 CREATE TABLE residenceOnCampus(
                                   CampusID				int,
@@ -256,4 +268,7 @@ CREATE TABLE applicationsForResidence(
 );
 
 INSERT INTO applicationsForResidence VALUES(110, 201);
-INSERT INTO applicationsForResidence VALUES(140, 202);
+INSERT INTO applicationsForResidence VALUES(110, 202);
+INSERT INTO applicationsForResidence VALUES(120, 203);
+INSERT INTO applicationsForResidence VALUES(130, 204);
+INSERT INTO applicationsForResidence VALUES(140, 205);
