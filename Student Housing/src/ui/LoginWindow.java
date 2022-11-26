@@ -1,5 +1,7 @@
 package ui;
 
+import controller.Housing;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,7 @@ public class LoginWindow extends JFrame implements ActionListener {
 
     //initialize button, panel, label, and textfield
     private static final int TEXT_FIELD_WIDTH = 10;
+    Housing housing = new Housing();
     private JTextField studentUserIDField;
     private  JTextField staffUserIDField;
     private JTextField visitorUserIDField;
@@ -115,8 +118,7 @@ public class LoginWindow extends JFrame implements ActionListener {
             if (staffUserValue.equals("")){
                 System.out.println("Enter userID or click another button");
             } else {
-                //todo uncomment
-                // residentInfo = selectionProjectionQuery(null, Integer.parseInt(staffUserValue), null); // gives List[String] of Resident info
+                residentInfo = housing.selectionProjectionQuery(0, Integer.parseInt(staffUserValue), ""); // gives List[String] of Resident info
                 ResidentInfoPage residentInfoPage = new ResidentInfoPage(residentInfo);
                 residentInfoPage.setVisible(true);
             }
@@ -124,8 +126,7 @@ public class LoginWindow extends JFrame implements ActionListener {
             if (visitorUserValue.equals("")){
                 System.out.println("Enter userID or click another button");
             } else {
-                //todo uncomment
-                // residentInfo = selectionProjectionQuery(null, null, visitorUserValue); // gives List[String] of Resident info
+                residentInfo = housing.selectionProjectionQuery(0, 0, visitorUserValue); // gives List[String] of Resident info
                 ResidentInfoPage residentInfoPage = new ResidentInfoPage(residentInfo);
                 residentInfoPage.setVisible(true);
             }

@@ -3,18 +3,18 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class DivisionPage extends JFrame {
+public class MinMaxPage extends JFrame {
     JLabel residencesLabel = new JLabel();
     JPanel panel = new JPanel();
 
     //constructor
-    DivisionPage(String s){
+    MinMaxPage(String s) {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Residence Information");
-        setSize(400,200);
+        setSize(400, 200);
         panel.setLayout(new GridLayout(0, 1));
 
-        residencesLabel.setText("Residences with all amenities: " + s);
+        residencesLabel.setText("Residences and their rent: " + s);
 
         panel.add(residencesLabel);
 

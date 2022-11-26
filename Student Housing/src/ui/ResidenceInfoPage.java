@@ -1,12 +1,15 @@
 package ui;
 
+import controller.Housing;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class ResidenceInfoPage extends JFrame implements ActionListener {
+
+     Housing housing = new Housing();
     String residenceList[] = {"Brock Commons", "Exchange", "Marine Drive", "Ponderosa Commons", "Thunderbird"};
     String minMaxList[] = {"Min", "Max"};
     JPanel Panel = new JPanel();
@@ -14,16 +17,19 @@ public class ResidenceInfoPage extends JFrame implements ActionListener {
     JLabel minOrMaxDropdownLabel = new JLabel();
     JLabel campusNameLabel = new JLabel();
     JLabel amenityLabel = new JLabel();
+    JLabel averageLabel = new JLabel();
     JLabel divisionLabel = new JLabel();
     JButton findInfoButton = new JButton("Find Info");
     JButton findInfoMaxButton = new JButton("Find Rent Info");
     JButton findInfoCampusNameButton = new JButton("Find Campus Names");
     JButton findInfoAmenityButton = new JButton("Find Residences With The Given Amenity");
+    JButton findAvgRentButton = new JButton("Find Average Rent");
     JButton divisionButton = new JButton("Find Residences With All Amenities");
     JComboBox resDropdown = new JComboBox(residenceList);
     JComboBox minOrMaxDropdown = new JComboBox(minMaxList);
     JTextField campusNameTextField = new JTextField(30);
     JTextField amenityTextField = new JTextField(30);
+    JTextField averageTextField = new JTextField(30);
 
 
 
@@ -53,6 +59,10 @@ public class ResidenceInfoPage extends JFrame implements ActionListener {
         Panel.add(amenityLabel);
         Panel.add(amenityTextField);
         Panel.add(findInfoAmenityButton);
+        averageLabel.setText("Enter a residence name below to find the average rent:");
+        Panel.add(averageLabel);
+        Panel.add(averageTextField);
+        Panel.add(findAvgRentButton);
         divisionLabel.setText("To find all residences with all amenities, click the button below:");
         Panel.add(divisionLabel);
         Panel.add(divisionButton);
@@ -60,28 +70,47 @@ public class ResidenceInfoPage extends JFrame implements ActionListener {
         add(Panel,BorderLayout.CENTER);
 
         // Perform action when on button clicks
-        findInfoButton.addActionListener(this);
+        findInfoMaxButton.addActionListener(this);
+        findInfoCampusNameButton.addActionListener(this);
+        findInfoAmenityButton.addActionListener(this);
+        findAvgRentButton.addActionListener(this);
         divisionButton.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent ae) {
-       String selectedRes = resDropdown.getSelectedItem().toString();// gets selected residence into a string
-        System.out.println(selectedRes);
+       String selectedMinOrMax = minOrMaxDropdown.getSelectedItem().toString();// gets selected residence into a string
+        String campusNameUserValue = campusNameTextField.getText();
+        String amenityUserValue = amenityTextField.getText();
+        String averageUserValue = averageTextField.getText();
+        String minOrMaxQueryString = new String();
+        String campusNameQueryString = new String();
+        String amenityQueryString = new String();
+        String averageQueryString = new String();
+        String divisionQueryString = new String();
 
-        if (ae.getSource() == findInfoButton) {
-            // check whether credentials are authentic or not
-            // Resident or Staff or Visitor
-            //TODO
-            if(selectedRes.equals("1")) {
+        if (ae.getSource() == findInfoMaxButton ) {
 
-            }
-            else {
-                //show error message
-                System.out.println("Please enter valid userID");
-            }
+            minOrMaxQueryString = housing.groupByQuery(selectedMinOrMax);
+            MinMaxPage minMaxPage = new MinMaxPage(minOrMaxQueryString);
+            minMaxPage.setVisible(true);
+        } else if (ae.getSource() == findInfoCampusNameButton) {
+
+            campusNameQueryString = housing.havingQuery(Integer.parseInt(campusNameUserValue));
+            CampusNamePage campusNamePage = new CampusNamePage(campusNameQueryString);
+            campusNamePage.setVisible(true);
+        } else if (ae.getSource() == findInfoAmenityButton) {
+
+            amenityQueryString = housing.joinQuery(amenityUserValue);
+            AmenityPage amenityPage = new AmenityPage(amenityQueryString);
+            amenityPage.setVisible(true);
+        } else if (ae.getSource() == findAvgRentButton) {
+
+            averageQueryString = housing.nestedAggQuery(averageUserValue);
+            AveragePage averagePage = new AveragePage(averageQueryString);
+            averagePage.setVisible(true);
         } else if (ae.getSource() == divisionButton) {
-
-            DivisionPage divisionPage = new DivisionPage();
+            divisionQueryString = housing.divisionQuery();
+            DivisionPage divisionPage = new DivisionPage(divisionQueryString);
             divisionPage.setVisible(true);
         }
         else {

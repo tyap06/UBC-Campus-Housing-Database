@@ -3,20 +3,20 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class DivisionPage extends JFrame {
-    JLabel residencesLabel = new JLabel();
+public class CampusNamePage extends JFrame {
+    JLabel campusLabel = new JLabel();
     JPanel panel = new JPanel();
 
     //constructor
-    DivisionPage(String s){
+    CampusNamePage(String s) {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Residence Information");
-        setSize(400,200);
+        setSize(400, 200);
         panel.setLayout(new GridLayout(0, 1));
 
-        residencesLabel.setText("Residences with all amenities: " + s);
+        campusLabel.setText("Campus Names: " + s);
 
-        panel.add(residencesLabel);
+        panel.add(campusLabel);
 
         add(panel);
     }
