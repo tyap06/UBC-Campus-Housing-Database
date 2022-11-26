@@ -11,7 +11,7 @@ public class Housing {
 
     public Housing(){
         dbHandler = new DatabaseConnectionHandler();
-        dbHandler.login("","");
+        dbHandler.login("ora_tyap1106","a43665868");
     }
 
 

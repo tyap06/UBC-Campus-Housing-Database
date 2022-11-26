@@ -105,8 +105,8 @@ public class LoginWindow extends JFrame implements ActionListener {
             if(studentUserValue.equals("")){
                 System.out.println("Enter userID or click another button");
             } else {
-                //todo uncomment when ready
-                // residentInfo = selectionProjectionQuery(Integer.parseInt(studentUserValue), null, null); // gives List[String] of Resident info
+
+                residentInfo = housing.selectionProjectionQuery(Integer.parseInt(studentUserValue), 0, ""); // gives List[String] of Resident info
 
                 //create new instance of User information based on resident, staff, and visitor
                 ResidentInfoPage residentInfoPage = new ResidentInfoPage(residentInfo);
