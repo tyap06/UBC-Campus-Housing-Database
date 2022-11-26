@@ -11,7 +11,7 @@ public class MinMaxPage extends JFrame {
     MinMaxPage(String s) {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Residence Information");
-        setSize(400, 200);
+        setSize(600, 200);
         panel.setLayout(new GridLayout(0, 1));
 
         residencesLabel.setText("Residences and their rent: " + s);

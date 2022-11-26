@@ -81,6 +81,7 @@ public class ResidenceInfoPage extends JFrame implements ActionListener {
        String selectedMinOrMax = minOrMaxDropdown.getSelectedItem().toString();// gets selected residence into a string
         String campusNameUserValue = campusNameTextField.getText();
         String amenityUserValue = amenityTextField.getText();
+        System.out.println(amenityUserValue);
         String averageUserValue = averageTextField.getText();
         String minOrMaxQueryString = new String();
         String campusNameQueryString = new String();
