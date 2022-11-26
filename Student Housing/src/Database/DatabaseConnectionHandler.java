@@ -8,22 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Model;
-import util.Constants;
-import util.ModelType;
-
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import ca.ubc.cs304.util.PrintablePreparedStatement;
 
 public class DatabaseConnectionHandler {
-
-
     private Connection connection = null;
-
 
 
     public DatabaseConnectionHandler() {
@@ -60,6 +48,330 @@ public class DatabaseConnectionHandler {
             return false;
         }
     }
+
+    private void dropAllTables () {
+        dropRoomAllocationInfoTableIfExists();
+        dropRoomInfoTableIfExists();
+        dropWorksTableIfExists();
+        dropLivesWithTableIfExists();
+        dropAmenitiesInResidenceTableIfExists();
+        dropCFAResidentsTableIfExists();
+        dropResidenceOnCampusTableIfExists();
+        dropApplicationsForResidenceTableIfExists();
+        dropCampusTableIfExists();
+        dropResidenceStaffTableIfExists();
+        dropResidenceTableIfExists();
+        dropAmenitiesTableIfExists();
+        dropApplicationTableIfExists();
+        dropCFATableIfExists();
+        dropResidentTableIfExists();
+
+
+
+
+    }
+
+    private void dropRoomAllocationInfoTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("RoomAllocationInfo")) {
+                    ps.execute("DROP TABLE RoomAllocationInfo");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropRoomInfoTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("RoomInfo")) {
+                    ps.execute("DROP TABLE RoomInfo");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropWorksTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("Works")) {
+                    ps.execute("DROP TABLE Works");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropLivesWithTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("LivesWith")) {
+                    ps.execute("DROP TABLE LivesWith");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropAmenitiesInResidenceTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("amenitiesInResidence")) {
+                    ps.execute("DROP TABLE amenitiesInResidence");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropCFAResidentsTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("CFAresidents")) {
+                    ps.execute("DROP TABLE CFAresidents");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropResidenceOnCampusTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("residenceOnCampus")) {
+                    ps.execute("DROP TABLE residenceOnCampus");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropApplicationsForResidenceTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("applicationsForResidence")) {
+                    ps.execute("DROP TABLE applicationsForResidence");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropCampusTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("Campus")) {
+                    ps.execute("DROP TABLE Campus");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropResidenceStaffTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("ResidenceStaff")) {
+                    ps.execute("DROP TABLE ResidenceStaff");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropResidenceTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("Residence")) {
+                    ps.execute("DROP TABLE Residence");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropAmenitiesTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("Amenities")) {
+                    ps.execute("DROP TABLE Amenities");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropApplicationTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("Application")) {
+                    ps.execute("DROP TABLE Application");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropCFATableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("CFA")) {
+                    ps.execute("DROP TABLE CFA");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+    private void dropResidentTableIfExists() {
+        try {
+            String query = "select table_name from user_tables";
+            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                if(rs.getString(1).toLowerCase().equals("Resident")) {
+                    ps.execute("DROP TABLE Resident");
+                    break;
+                }
+            }
+
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+    }
+
+
 
     public void delete(Model model) {
         switch (model.type) {
@@ -101,8 +413,8 @@ public class DatabaseConnectionHandler {
                 break;
             default:
 
-            }
         }
+    }
 
 
 
@@ -233,7 +545,8 @@ public class DatabaseConnectionHandler {
         }
         return null;
     }
-    
+
+
     // insert query
     public void addNewApplication(String applicantName, String residentType, String firstPrefRoom, String secondPrefRoom, String firstPrefResidence, String secondPrefResidence, String housingSession,
                                   String CWL, int studentNumber, String program, String emailAddress, String lengthOfStay, int employeeNumber, int noOfAccompanyingFamilyMembers){
@@ -242,7 +555,7 @@ public class DatabaseConnectionHandler {
         Application newApp = new Application(applicantName, residentType, firstPrefRoom, secondPrefRoom, firstPrefResidence, secondPrefResidence, housingSession, CWL, studentNumber, program, emailAddress, lengthOfStay, employeeNumber, noOfAccompanyingFamilyMembers);
         appHandler.insert(newApp, connection);
     }
-    
+
     //delete query
     public void deleteResident(int studentNumber, int employeeNumber) {
         ResidentHandler residentHandler = new ResidentHandler();
@@ -257,7 +570,7 @@ public class DatabaseConnectionHandler {
         }
 
     }
-    
+
     //update query
     public void updateVisitor(String emailAddress, String lengthOfStay) {
         ResidentHandler residentHandler = new ResidentHandler();
@@ -265,7 +578,7 @@ public class DatabaseConnectionHandler {
         Resident visitor = new Resident(0,"","","",0,"",emailAddress,lengthOfStay,0,0);
         residentHandler.update(visitor,connection);
     }
-    
+
     // selection and projection query
     public List<String> getResidentDisplayInfo(int studentNumber, int employeeNumber, String emailAddress){
         List<String> output = new ArrayList<String>(); // output = {name, housing session,house, unit number, residence name, room type, rent}
@@ -534,8 +847,8 @@ public class DatabaseConnectionHandler {
         }
         return null;
     }
-    
-    
+
+
     // Aggregation with GROUP BY query
     // input should be either "Min" or "Max"
     public String getMinMaxRentByResidence(String minOrMax){
@@ -549,7 +862,7 @@ public class DatabaseConnectionHandler {
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()){
-                   output.append("Minimum rent for" + rs.getString("residenceName") + "is" + rs.getInt("Rent") + "$" + "\n");
+                    output.append("Minimum rent for" + rs.getString("residenceName") + "is" + rs.getInt("Rent") + "$" + "\n");
                 }
 
                 rs.close();
@@ -588,7 +901,7 @@ public class DatabaseConnectionHandler {
         return null;
 
     }
-    
+
     //Aggregation with HAVING Query
     // Find the names of all campuses where there is atleast BLANK residences
     public String getCampusNames(int noOfRes){
@@ -598,16 +911,16 @@ public class DatabaseConnectionHandler {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1,noOfRes);
             ResultSet rs = ps.executeQuery();
-            
+
             while(rs.next()){
                 output.append(rs.getString("campusName") + "\n");
             }
-            
+
             rs.close();
             ps.close();
-            
+
             return output.toString();
-            
+
 
         } catch (SQLException e) {
             System.out.println(Constants.EXCEPTION_TAG + " " + e.getMessage());
@@ -615,7 +928,7 @@ public class DatabaseConnectionHandler {
         }
 
     }
-    
+
     //Join query
     //Find all residences that have the given amenity
     public String getResForAmenity(String amenity){
@@ -642,7 +955,7 @@ public class DatabaseConnectionHandler {
         }
 
     }
-    
+
     //Division query
     // Finds the residences that have all the amenities
     public String getAllResWithAllAmenities(){
@@ -666,7 +979,7 @@ public class DatabaseConnectionHandler {
             return "There are no residences with all the amenities";
         }
     }
-    
+
     // Nested Aggregation with GROUP BY Query
     public String getAvgRentPerRoomForResidence(String residenceName){
         String query = "SELECT roomType, AVG(rent) as Rent FROM RoomInfo WHERE residenceID IN (SELECT residenceID FROM Residence WHERE residenceName = ?) GROUP BY roomType";
