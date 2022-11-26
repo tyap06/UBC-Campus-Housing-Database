@@ -58,7 +58,7 @@ public class LoginWindow extends JFrame implements ActionListener {
         seeResInfoButton = new JButton("See Residence Information");
 
         //create panel to put form elements
-        newPanel = new JPanel(new GridLayout(5,1));
+        newPanel = new JPanel(new GridLayout(4,1));
         newPanel.add(studentUserIdLabel); //set username label to panel
         newPanel.add(studentUserIDField); //set text field to panel
         newPanel.add(studentLoginButton); //set button to panel
