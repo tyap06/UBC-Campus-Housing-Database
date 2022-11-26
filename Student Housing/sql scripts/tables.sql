@@ -1,8 +1,6 @@
 drop table RoomAllocationInfo;
 drop table RoomInfo;
 
-
-
 drop table Works;
 drop table LivesWith;
 drop table amenitiesInResidence;
@@ -17,8 +15,6 @@ drop table Amenities;
 drop table Application;
 drop table CFA;
 drop table Resident;
-
-
 
 
 CREATE TABLE Campus (
@@ -157,15 +153,6 @@ CREATE TABLE RoomAllocationInfo (
                                     unitNumber				int,
                                     residentID				int, -- no pk
                                     residenceID       int, -- added, no pk
--- residentName					varchar(100)	NOT NULL,
--- Session				varchar(75)	NOT NULL,
--- CWL					varchar(10)	UNIQUE,
--- Student Number			int		UNIQUE,
--- Program				varchar(75),
--- Email Address				varchar(50)	UNIQUE,
--- Length of Stay				varchar(50),
--- Employee Number			int,		UNIQUE
--- NoOfAccompanysFamilyMembers	int,
                                     PRIMARY KEY (House, unitNumber),
                                     FOREIGN KEY(House, UnitNumber) REFERENCES RoomInfo ON DELETE CASCADE,
                                     FOREIGN KEY (ResidentID ) REFERENCES Resident ON DELETE CASCADE,
