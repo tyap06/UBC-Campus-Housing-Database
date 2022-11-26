@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.ubc.cs304.util.PrintablePreparedStatement;
+//import ca.ubc.cs304.util.PrintablePreparedStatement;
 
 public class DatabaseConnectionHandler {
     private Connection connection = null;
@@ -49,327 +49,327 @@ public class DatabaseConnectionHandler {
         }
     }
 
-    private void dropAllTables () {
-        dropRoomAllocationInfoTableIfExists();
-        dropRoomInfoTableIfExists();
-        dropWorksTableIfExists();
-        dropLivesWithTableIfExists();
-        dropAmenitiesInResidenceTableIfExists();
-        dropCFAResidentsTableIfExists();
-        dropResidenceOnCampusTableIfExists();
-        dropApplicationsForResidenceTableIfExists();
-        dropCampusTableIfExists();
-        dropResidenceStaffTableIfExists();
-        dropResidenceTableIfExists();
-        dropAmenitiesTableIfExists();
-        dropApplicationTableIfExists();
-        dropCFATableIfExists();
-        dropResidentTableIfExists();
-
-
-
-
-    }
-
-    private void dropRoomAllocationInfoTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("RoomAllocationInfo")) {
-                    ps.execute("DROP TABLE RoomAllocationInfo");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropRoomInfoTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("RoomInfo")) {
-                    ps.execute("DROP TABLE RoomInfo");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropWorksTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("Works")) {
-                    ps.execute("DROP TABLE Works");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropLivesWithTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("LivesWith")) {
-                    ps.execute("DROP TABLE LivesWith");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropAmenitiesInResidenceTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("amenitiesInResidence")) {
-                    ps.execute("DROP TABLE amenitiesInResidence");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropCFAResidentsTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("CFAresidents")) {
-                    ps.execute("DROP TABLE CFAresidents");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropResidenceOnCampusTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("residenceOnCampus")) {
-                    ps.execute("DROP TABLE residenceOnCampus");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropApplicationsForResidenceTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("applicationsForResidence")) {
-                    ps.execute("DROP TABLE applicationsForResidence");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropCampusTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("Campus")) {
-                    ps.execute("DROP TABLE Campus");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropResidenceStaffTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("ResidenceStaff")) {
-                    ps.execute("DROP TABLE ResidenceStaff");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropResidenceTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("Residence")) {
-                    ps.execute("DROP TABLE Residence");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropAmenitiesTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("Amenities")) {
-                    ps.execute("DROP TABLE Amenities");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropApplicationTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("Application")) {
-                    ps.execute("DROP TABLE Application");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropCFATableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("CFA")) {
-                    ps.execute("DROP TABLE CFA");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
-
-    private void dropResidentTableIfExists() {
-        try {
-            String query = "select table_name from user_tables";
-            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()) {
-                if(rs.getString(1).toLowerCase().equals("Resident")) {
-                    ps.execute("DROP TABLE Resident");
-                    break;
-                }
-            }
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-    }
+//    private void dropAllTables () {
+//        dropRoomAllocationInfoTableIfExists();
+//        dropRoomInfoTableIfExists();
+//        dropWorksTableIfExists();
+//        dropLivesWithTableIfExists();
+//        dropAmenitiesInResidenceTableIfExists();
+//        dropCFAResidentsTableIfExists();
+//        dropResidenceOnCampusTableIfExists();
+//        dropApplicationsForResidenceTableIfExists();
+//        dropCampusTableIfExists();
+//        dropResidenceStaffTableIfExists();
+//        dropResidenceTableIfExists();
+//        dropAmenitiesTableIfExists();
+//        dropApplicationTableIfExists();
+//        dropCFATableIfExists();
+//        dropResidentTableIfExists();
+//
+//
+//
+//
+//    }
+//
+//    private void dropRoomAllocationInfoTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("RoomAllocationInfo")) {
+//                    ps.execute("DROP TABLE RoomAllocationInfo");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropRoomInfoTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("RoomInfo")) {
+//                    ps.execute("DROP TABLE RoomInfo");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropWorksTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("Works")) {
+//                    ps.execute("DROP TABLE Works");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropLivesWithTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("LivesWith")) {
+//                    ps.execute("DROP TABLE LivesWith");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropAmenitiesInResidenceTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("amenitiesInResidence")) {
+//                    ps.execute("DROP TABLE amenitiesInResidence");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropCFAResidentsTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("CFAresidents")) {
+//                    ps.execute("DROP TABLE CFAresidents");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropResidenceOnCampusTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("residenceOnCampus")) {
+//                    ps.execute("DROP TABLE residenceOnCampus");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropApplicationsForResidenceTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("applicationsForResidence")) {
+//                    ps.execute("DROP TABLE applicationsForResidence");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropCampusTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("Campus")) {
+//                    ps.execute("DROP TABLE Campus");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropResidenceStaffTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("ResidenceStaff")) {
+//                    ps.execute("DROP TABLE ResidenceStaff");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropResidenceTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("Residence")) {
+//                    ps.execute("DROP TABLE Residence");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropAmenitiesTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("Amenities")) {
+//                    ps.execute("DROP TABLE Amenities");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropApplicationTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("Application")) {
+//                    ps.execute("DROP TABLE Application");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropCFATableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("CFA")) {
+//                    ps.execute("DROP TABLE CFA");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
+//
+//    private void dropResidentTableIfExists() {
+//        try {
+//            String query = "select table_name from user_tables";
+//            PrintablePreparedStatement ps = new PrintablePreparedStatement(connection.prepareStatement(query), query, false);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while(rs.next()) {
+//                if(rs.getString(1).toLowerCase().equals("Resident")) {
+//                    ps.execute("DROP TABLE Resident");
+//                    break;
+//                }
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        } catch (SQLException e) {
+//            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+//        }
+//    }
 
 
 
